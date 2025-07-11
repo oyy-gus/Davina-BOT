@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Davina BOT - Music Commands</title>
+  <title>Davina BOT - Administrator Commands</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -191,29 +191,30 @@
       background-color: var(--table-hover);
     }
 
-    .next-button-container {
-      text-align: right;
-      margin-top: 1rem;
-    }
+    .nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
 
-    .next-button {
-      background-color: #379C70;
-      color: #fff;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      -webkit-tap-highlight-color: transparent;
-    }
+.nav-button {
+  background-color: #379C70;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+}
 
-    .next-button:hover {
-      background-color: #0099b0;
-    }
+.nav-button:hover {
+  background-color: #0099b0;
+}
 
     @media (max-width: 700px) {
       .commands-grid {
@@ -229,20 +230,20 @@
       <i class="fas fa-bars"></i>
     </button>
     <nav id="menu">
-      <a href="../">Beranda</a>
-      <a href="../Dokumentasi/">Dokumentasi</a>
+      <a href="../../../../">Beranda</a>
+      <a href="../../../../Dokumentasi/">Dokumentasi</a>
     </nav>
   </header>
 
   <main data-aos="fade-up">
     <section id="music-commands">
-      <h2>Music Commands</h2>
+      <h2>Information Commands</h2>
       <div class="commands-grid" id="commands-container">
         <div class="command-item command header-row">Commands</div>
         <div class="command-item header-row">Description</div>
       </div>
-      <div class="next-button-container">
-        <a href="./page/" class="next-button">Next &rarr;</a>
+      <div class="nav-buttons">
+        <a href="../" class="nav-button back-button">&larr; Back</a>
       </div>
     </section>
   </main>

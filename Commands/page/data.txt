@@ -1,0 +1,4 @@
+avatar|Menampilkan avatar pengguna dalam ukuran besar.
+google|Melakukan pencarian menggunakan Google dan menampilkan hasil teratas.
+translate|Menerjemahkan teks ke bahasa yang ditentukan.
+wiki|Mencari artikel di Wikipedia dan menampilkan ringkasannya.

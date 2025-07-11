@@ -1,0 +1,6 @@
+help|Menampilkan daftar perintah yang tersedia.
+invite|Menampilkan tautan undangan untuk menambahkan bot ke server.
+ping|Menampilkan latensi bot terhadap Discord.
+serverinfo|Menampilkan informasi tentang server saat ini.
+status|Menampilkan status dan statistik bot.
+userinfo|Menampilkan informasi tentang pengguna tertentu.
