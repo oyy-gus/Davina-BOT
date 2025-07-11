@@ -1,0 +1,14 @@
+autoplay|Memutar lagu secara otomatis tanpa henti.
+clearqueue|Membersihkan semua antrian lagu.
+disconnect|Memutuskan bot dari voice channel.
+join|Menghubungkan bot ke voice channel.
+loop|Mengaktifkan atau menonaktifkan loop.
+nowplaying|Menampilkan lagu yang sedang diputar.
+pause|Menjeda lagu saat ini.
+play|Memutar lagu berdasarkan nama atau URL.
+queue|Menampilkan daftar lagu dalam antrian.
+remove|Menghapus lagu dari antrian.
+seek|Melompat ke waktu tertentu dalam lagu.
+skip|Melewati lagu saat ini.
+skipto|Langsung ke lagu tertentu dalam antrian.
+volume|Mengubah volume pemutaran.
