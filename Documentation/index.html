@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davina BOT</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #e5e5e5;
+      --nav-bg: rgba(31, 31, 31, 0.6);
+      --nav-link: #e5e5e5;
+      --nav-hover: #00b4db;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #121212;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(270deg, #00b4db, #8e2de2, #ff5f6d, #00b4db);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      background: none;
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      background: var(--nav-bg);
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    nav.show {
+      display: flex;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--nav-link);
+      margin: 0.5rem 0;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--nav-hover);
+      transform: translateX(5px);
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        position: static;
+        background: none;
+        flex-direction: row;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      nav a {
+        margin-left: 2rem;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    main {
+      flex: 1;
+      padding: 1.5rem;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .description {
+      color: #ccc;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      margin: 1.5rem 0 0.5rem;
+      font-weight: bold;
+      color: red;
+      text-align: left;
+    }
+
+    .command-block {
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .cmd-desc {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 0.4rem;
+    }
+
+    .command-line {
+      background: #1c1c1c;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .command-line:hover {
+      background: #292929;
+    }
+
+    .command-line code {
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: #379C70;
+      cursor: pointer;
+      font-size: 1rem;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .copy-btn:hover {
+      color: #1de9b6;
+    }
+
+    .copied {
+      color: #1de9b6 !important;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Davina BOT</div>
+    <button class="menu-toggle" onclick="toggleMenu()" title="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="menu">
+      <a href="../">Beranda</a>
+      <a href="../Commands/">Commands</a>
+    </nav>
+  </header>
+
+  <main data-aos="fade-up">
+    <h1 class="logo">Cara Penggunaan</h1>
+    <p class="description">Prefix default adalah <strong>*</strong>. Gunakan perintah berikut di Discord:</p>
+    <div id="commands"></div>
+  </main>
+
+  <footer>&copy; 2025 Davina BOT. Dibuat dengan ❤️</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    document.addEventListener("click", function(event) {
+      const menu = document.getElementById("menu");
+      const toggle = document.querySelector(".menu-toggle");
+      if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !toggle.contains(event.target)) {
+        menu.classList.remove("show");
+      }
+    });
+
+    const musicCmds = [
+      'autoplay', 'clearqueue', 'disconnect', 'join', 'loop', 'nowplaying',
+      'pause', 'play', 'queue', 'remove', 'seek', 'skip', 'skipto', 'volume'
+    ];
+
+    const adminCmds = [
+      'prefixset', 'setbackground', 'setwelcome', 'unsetbackground', 'unsetwelcome'
+    ];
+
+    const infoCmds = [
+      'help', 'invite', 'ping', 'serverinfo', 'status', 'userinfo'
+    ];
+
+    const funCmds = [
+      'avatar', 'google', 'translate', 'wiki'
+    ];
+
+    fetch('data.txt')
+      .then(res => res.text())
+      .then(text => {
+        const lines = text.trim().split('\n');
+        const container = document.getElementById('commands');
+        let shownNotes = new Set();
+
+        lines.forEach(line => {
+          const [cmd, desc] = line.split('|');
+          const command = cmd.trim();
+
+          let note = '';
+          if (musicCmds.includes(command)) {
+            note = '🔊 Harus masuk ke voice channel dan tidak mute';
+          } else if (funCmds.includes(command)) {
+            note = '⚠️ Tidak memiliki permissions khusus';
+          } else if (adminCmds.includes(command)) {
+            note = '🛡️ Perlu akses admin';
+          } else if (infoCmds.includes(command)) {
+            note = '⚠️ Tidak memiliki permissions khusus.';
+          }
+
+          if (note && !shownNotes.has(note)) {
+            const noteEl = document.createElement('div');
+            noteEl.className = 'note';
+            noteEl.textContent = note;
+            container.appendChild(noteEl);
+            shownNotes.add(note);
+          }
+
+          const block = document.createElement('div');
+          block.className = 'command-block';
+
+          const descEl = document.createElement('div');
+          descEl.className = 'cmd-desc';
+          descEl.textContent = desc;
+
+          const cmdLine = document.createElement('div');
+          cmdLine.className = 'command-line';
+
+          const code = document.createElement('code');
+          const fullCommand = `*${command}`;
+          code.textContent = fullCommand;
+
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'copy-btn';
+          copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+          copyBtn.onclick = () => {
+            navigator.clipboard.writeText(fullCommand);
+            copyBtn.classList.add('copied');
+            setTimeout(() => copyBtn.classList.remove('copied'), 1000);
+          };
+
+          cmdLine.appendChild(code);
+          cmdLine.appendChild(copyBtn);
+
+          block.appendChild(descEl);
+          block.appendChild(cmdLine);
+          container.appendChild(block);
+        });
+      });
+  </script>
+</body>
+</html>
