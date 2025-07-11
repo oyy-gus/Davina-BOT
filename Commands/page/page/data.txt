@@ -1,5 +1,5 @@
-prefixset|Mengatur prefix khusus untuk server.
-setbackground|Mengatur gambar latar belakang untuk pesan sambutan.
-setwelcome|Mengatur pesan sambutan saat anggota baru bergabung.
-unsetbackground|Menghapus gambar latar belakang sambutan.
-unsetwelcome|Menghapus pesan sambutan yang telah diatur.
+prefixset|Sets a custom prefix for the server.
+setbackground|Sets a background image for the welcome message.
+setwelcome|Sets a welcome message when a new member joins.
+unsetbackground|Removes the welcome background image.
+unsetwelcome|Removes the configured welcome message.

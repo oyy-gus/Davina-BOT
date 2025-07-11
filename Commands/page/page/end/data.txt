@@ -1,6 +1,6 @@
-help|Menampilkan daftar perintah yang tersedia.
-invite|Menampilkan tautan undangan untuk menambahkan bot ke server.
-ping|Menampilkan latensi bot terhadap Discord.
-serverinfo|Menampilkan informasi tentang server saat ini.
-status|Menampilkan status dan statistik bot.
-userinfo|Menampilkan informasi tentang pengguna tertentu.
+help|Displays a list of available commands.
+invite|Displays an invitation link to add the bot to a server.
+ping|Displays the bot's latency to Discord.
+serverinfo|Displays information about the current server.
+status|Displays the bot's status and statistics.
+userinfo|Displays information about a specific user.

@@ -1,14 +1,14 @@
-autoplay|Memutar lagu secara otomatis tanpa henti.
-clearqueue|Membersihkan semua antrian lagu.
-disconnect|Memutuskan bot dari voice channel.
-join|Menghubungkan bot ke voice channel.
-loop|Mengaktifkan atau menonaktifkan loop.
-nowplaying|Menampilkan lagu yang sedang diputar.
-pause|Menjeda lagu saat ini.
-play|Memutar lagu berdasarkan nama atau URL.
-queue|Menampilkan daftar lagu dalam antrian.
-remove|Menghapus lagu dari antrian.
-seek|Melompat ke waktu tertentu dalam lagu.
-skip|Melewati lagu saat ini.
-skipto|Langsung ke lagu tertentu dalam antrian.
-volume|Mengubah volume pemutaran.
+autoplay|Automatically plays songs without stopping.
+clearqueue|Clears all songs from the queue.
+disconnect|Disconnects the bot from the voice channel.
+join|Connects the bot to the voice channel.
+loop|Toggles loop on or off.
+nowplaying|Displays the currently playing song.
+pause|Pauses the current song.
+play|Plays a song by name or URL.
+queue|Displays the list of songs in the queue.
+remove|Removes a song from the queue.
+seek|Jumps to a specific time in the song.
+skip|Skips the current song.
+skipto|Skips directly to a specific song in the queue.
+volume|Changes the playback volume.

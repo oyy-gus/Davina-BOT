@@ -198,18 +198,18 @@
       <i class="fas fa-bars"></i>
     </button>
     <nav id="menu">
-      <a href="../">Beranda</a>
+      <a href="../">Home</a>
       <a href="../Commands/">Commands</a>
     </nav>
   </header>
 
   <main data-aos="fade-up">
-    <h1 class="logo">Cara Penggunaan</h1>
-    <p class="description">Prefix default adalah <strong>*</strong>. Gunakan perintah berikut di Discord:</p>
+    <h1 class="logo">📘 Usage Guide</h1>
+    <p class="description">The default prefix is <strong>*</strong> | Use the following commands in Discord:</p>
     <div id="commands"></div>
   </main>
 
-  <footer>&copy; 2025 Davina BOT. Dibuat dengan ❤️</footer>
+  <footer>&copy; 2025 Davina BOT. Made with ❤️</footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -259,13 +259,13 @@
 
           let note = '';
           if (musicCmds.includes(command)) {
-            note = '🔊 Harus masuk ke voice channel dan tidak mute';
+            note = '🔊 You must be in a voice channel and not deafened.';
           } else if (funCmds.includes(command)) {
-            note = '⚠️ Tidak memiliki permissions khusus';
+            note = '⚠️ Does not require special permissions.';
           } else if (adminCmds.includes(command)) {
-            note = '🛡️ Perlu akses admin';
+            note = '🛡️ Administrator permissions required.';
           } else if (infoCmds.includes(command)) {
-            note = '⚠️ Tidak memiliki permissions khusus.';
+            note = '⚠️ No special permissions required.';
           }
 
           if (note && !shownNotes.has(note)) {

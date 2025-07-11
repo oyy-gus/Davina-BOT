@@ -1,29 +1,29 @@
-autoplay|Mengaktifkan atau menonaktifkan pemutaran otomatis lagu berikutnya
-clearqueue|Menghapus semua lagu dalam antrean
-disconnect|Memutuskan bot dari voice channel
-join|Memasukkan bot ke voice channel saat ini
-loop|Mengaktifkan atau menonaktifkan pengulangan lagu saat ini
-nowplaying|Menampilkan lagu yang sedang diputar
-pause|Menjeda lagu yang sedang diputar
-play|Memutar lagu dari URL atau kata kunci
-queue|Menampilkan daftar lagu dalam antrean
-remove|Menghapus lagu dari antrean berdasarkan posisi
-seek|Melompat ke waktu tertentu dalam lagu
-skip|Melewati lagu saat ini
-skipto|Langsung melompat ke lagu tertentu dalam antrean
-volume|Mengatur volume pemutaran musik
-avatar|Menampilkan avatar pengguna
-google|Mencari sesuatu menggunakan Google
-translate|Menerjemahkan teks ke bahasa tertentu
-wiki|Mencari informasi dari Wikipedia
-prefixset|Mengubah prefix bot
-setbackground|Mengatur gambar latar belakang
-setwelcome|Mengatur pesan sambutan untuk pengguna baru
-unsetbackground|Menghapus pengaturan latar belakang
-unsetwelcome|Menghapus pengaturan pesan sambutan
-help|Menampilkan daftar semua perintah
-invite|Menampilkan tautan undangan bot
-ping|Menampilkan latensi bot
-serverinfo|Menampilkan informasi server
-status|Menampilkan status bot saat ini
-userinfo|Menampilkan informasi pengguna
+autoplay|Toggles automatic playback of the next song.
+clearqueue|Deletes all songs in the queue.
+disconnect|Disconnects the bot from the voice channel.
+join|Connects the bot to the current voice channel.
+loop|Toggles repeating the current song.
+nowplaying|Displays the currently playing song.
+pause|Pauses the currently playing song.
+play|Plays a song from a URL or keyword.
+queue|Displays the list of songs in the queue.
+remove|Removes a song from the queue by its position.
+seek|Jumps to a specific time in the song.
+skip|Skips the current song.
+skipto|Jumps directly to a specific song in the queue.
+volume|Sets the music playback volume.
+avatar|Displays a user's avatar.
+google|Searches something using Google.
+translate|Translates text into a specific language.
+wiki|Searches for information from Wikipedia.
+prefixset|Changes the bot's prefix.
+setbackground|Sets a background image.
+setwelcome|Sets a welcome message for new users.
+unsetbackground|Removes the background setting.
+unsetwelcome|Removes the welcome message setting.
+help|Displays a list of all commands.
+invite|Displays the bot's invitation link.
+ping|Displays the bot's latency.
+serverinfo|Displays server information.
+status|Displays the current status of the bot.
+userinfo|Displays user information.
