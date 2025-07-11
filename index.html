@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Davina BOT</title>
+  <meta name="description" content="Davina BOT - Bot Discord multifungsi untuk musik, moderasi, dan hiburan.">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --bg-color: #0f0f0f;
       --text-color: #e5e5e5;
-      --nav-bg: #1f1f1f;
+      --nav-bg: rgba(31, 31, 31, 0.6);
       --nav-link: #e5e5e5;
       --nav-hover: #00b4db;
     }
@@ -24,6 +27,8 @@
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg-color);
+      background-size: 600% 600%;
+      animation: gradientShift 12s ease infinite;
       color: var(--text-color);
       margin: 0;
       min-height: 100vh;
@@ -59,6 +64,7 @@
       background: none;
       border: none;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     nav {
@@ -71,6 +77,8 @@
       padding: 1rem 1.5rem;
       border-radius: 12px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-tap-highlight-color: transparent;
     }
 
     nav.show {
@@ -111,7 +119,7 @@
 
     main {
       flex: 1;
-      padding: 4rem 1.5rem;
+      padding: 2rem 1.5rem;
       max-width: 960px;
       margin: auto;
       text-align: center;
@@ -119,11 +127,11 @@
 
     h1 {
       font-size: 2.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .profile {
-      margin: 2rem auto;
+      margin: 1.5rem auto;
       display: flex;
       justify-content: center;
     }
@@ -142,19 +150,41 @@
       height: 150px;
       border-radius: 50%;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gradient-border img:hover {
+      transform: scale(1.05);
     }
 
     p {
       font-size: 1.15rem;
       max-width: 720px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 1.75rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(90deg, #00b4db, #8e2de2);
+      color: white;
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(90deg, #8e2de2, #ff5f6d);
     }
 
     footer {
       text-align: center;
       padding: 1.5rem;
       font-size: 0.9rem;
-      color: #777;
+      color: #999;
     }
   </style>
 </head>
@@ -166,11 +196,12 @@
     </button>
     <nav id="menu">
       <a href="#">Beranda</a>
-      <a href="#">Dokumentasi</a>
+      <a href="./Dokumentasi/">Dokumentasi</a>
+      <a href="./Commands/">Commands</a>
     </nav>
   </header>
 
-  <main>
+  <main data-aos="fade-up">
     <h1>Selamat datang di Davina Karamoy BOT</h1>
     <div class="profile">
       <div class="gradient-border">
@@ -180,11 +211,15 @@
     <p>
       Davina Karamoy adalah bot Discord multifungsi yang dirancang untuk meningkatkan pengalaman pengguna di server Anda. Bot ini menyediakan berbagai fitur seperti pemutar musik, moderasi server, hiburan (fun), dan masih banyak lagi. Gunakan menu di kanan atas untuk menjelajahi dokumentasi, layanan, dan informasi lainnya tentang bot ini.
     </p>
+    <a href="#" class="cta-button">Undang Bot</a>
   </main>
 
   <footer>&copy; 2025 Davina BOT. Dibuat dengan ❤️</footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    AOS.init();
+
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("show");
     }
