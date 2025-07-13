@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,13 +17,21 @@
       --nav-link: #e5e5e5;
       --nav-hover: #00b4db;
     }
-
+    
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+      
+      50% {
+        background-position: 100% 50%;
+      }
+      
+      100% {
+        background-position: 0% 50%;
+      }
     }
-
+    
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg-color);
@@ -32,7 +41,7 @@
       flex-direction: column;
       min-height: 100vh;
     }
-
+    
     header {
       display: flex;
       justify-content: space-between;
@@ -44,7 +53,7 @@
       top: 0;
       z-index: 999;
     }
-
+    
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
@@ -54,7 +63,7 @@
       -webkit-text-fill-color: transparent;
       animation: gradientShift 6s ease infinite;
     }
-
+    
     .menu-toggle {
       font-size: 1.5rem;
       color: var(--text-color);
@@ -63,7 +72,7 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
-
+    
     nav {
       display: none;
       flex-direction: column;
@@ -77,11 +86,11 @@
       backdrop-filter: blur(10px);
       -webkit-tap-highlight-color: transparent;
     }
-
+    
     nav.show {
       display: flex;
     }
-
+    
     nav a {
       text-decoration: none;
       color: var(--nav-link);
@@ -89,12 +98,12 @@
       font-weight: 500;
       transition: 0.3s;
     }
-
+    
     nav a:hover {
       color: var(--nav-hover);
       transform: translateX(5px);
     }
-
+    
     @media (min-width: 768px) {
       nav {
         display: flex !important;
@@ -104,16 +113,16 @@
         box-shadow: none;
         padding: 0;
       }
-
+      
       nav a {
         margin-left: 2rem;
       }
-
+      
       .menu-toggle {
         display: none;
       }
     }
-
+    
     main {
       flex: 1;
       padding: 1.5rem;
@@ -121,13 +130,13 @@
       margin: auto;
       text-align: center;
     }
-
+    
     .description {
       color: #ccc;
       margin-bottom: 2rem;
       font-size: 1rem;
     }
-
+    
     .note {
       font-size: 0.95rem;
       margin: 1.5rem 0 0.5rem;
@@ -135,18 +144,18 @@
       color: red;
       text-align: left;
     }
-
+    
     .command-block {
       margin-bottom: 1.75rem;
       text-align: left;
     }
-
+    
     .cmd-desc {
       font-size: 0.9rem;
       color: #bbb;
       margin-bottom: 0.4rem;
     }
-
+    
     .command-line {
       background: #1c1c1c;
       padding: 0.75rem 1rem;
@@ -156,16 +165,16 @@
       align-items: center;
       transition: background 0.3s;
     }
-
+    
     .command-line:hover {
       background: #292929;
     }
-
+    
     .command-line code {
       font-size: 0.95rem;
       color: #fff;
     }
-
+    
     .copy-btn {
       background: none;
       border: none;
@@ -174,15 +183,15 @@
       font-size: 1rem;
       -webkit-tap-highlight-color: transparent;
     }
-
+    
     .copy-btn:hover {
       color: #1de9b6;
     }
-
+    
     .copied {
       color: #1de9b6 !important;
     }
-
+    
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -191,6 +200,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">Davina BOT</div>
@@ -202,111 +212,116 @@
       <a href="../Commands/">Commands</a>
     </nav>
   </header>
-
+  
   <main data-aos="fade-up">
     <h1 class="logo">📘 Usage Guide</h1>
     <p class="description">The default prefix is <strong>*</strong> | Use the following commands in Discord:</p>
     <div id="commands"></div>
   </main>
-
+  
   <footer>&copy; 2025 Davina BOT. Made with ❤️</footer>
-
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-
+    
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("show");
     }
-
+    
     document.addEventListener("click", function(event) {
       const menu = document.getElementById("menu");
       const toggle = document.querySelector(".menu-toggle");
-      if (menu.classList.contains("show") &&
-        !menu.contains(event.target) &&
-        !toggle.contains(event.target)) {
+      if (menu.classList.contains("show") && !menu.contains(event.target) && !toggle.contains(event.target)) {
         menu.classList.remove("show");
       }
     });
-
-    const musicCmds = [
-      'autoplay', 'clearqueue', 'disconnect', 'join', 'loop', 'nowplaying',
-      'pause', 'play', 'queue', 'remove', 'seek', 'skip', 'skipto', 'volume'
-    ];
-
-    const adminCmds = [
-      'prefixset', 'setbackground', 'setwelcome', 'unsetbackground', 'unsetwelcome'
-    ];
-
-    const infoCmds = [
-      'help', 'invite', 'ping', 'serverinfo', 'status', 'userinfo'
-    ];
-
-    const funCmds = [
-      'avatar', 'google', 'translate', 'wiki'
-    ];
-
-    fetch('data.txt')
-      .then(res => res.text())
-      .then(text => {
-        const lines = text.trim().split('\n');
-        const container = document.getElementById('commands');
-        let shownNotes = new Set();
-
-        lines.forEach(line => {
-          const [cmd, desc] = line.split('|');
-          const command = cmd.trim();
-
-          let note = '';
-          if (musicCmds.includes(command)) {
-            note = '🔊 You must be in a voice channel and not deafened.';
-          } else if (funCmds.includes(command)) {
-            note = '⚠️ Does not require special permissions.';
-          } else if (adminCmds.includes(command)) {
-            note = '🛡️ Administrator permissions required.';
-          } else if (infoCmds.includes(command)) {
-            note = '⚠️ No special permissions required.';
+    
+    const categoryNotes = {
+      music: "🔊 You must be in a voice channel and not deafened.",
+      administrator: "🛡️ Administrator permissions required.",
+      information: "⚠️ No special permissions required.",
+      fun: "⚠️ Does not require special permissions."
+    };
+    
+    const categoryOrder = ["music", "administrator", "information", "fun"];
+    
+    fetch("https://davina-backend.koyeb.app/commands")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("commands");
+        
+        if (!Array.isArray(data)) {
+          console.error("Expected an array but got:", data);
+          return;
+        }
+        
+        const grouped = {};
+        
+        data.forEach(item => {
+          if (typeof item !== "object" || !item.name) return;
+          
+          const command = item.name.trim();
+          const desc = item.description?.trim() || "";
+          const category = item.category?.trim().toLowerCase();
+          const note = categoryNotes[category];
+          
+          if (!note) return;
+          
+          if (!grouped[category]) {
+            grouped[category] = [];
           }
-
-          if (note && !shownNotes.has(note)) {
-            const noteEl = document.createElement('div');
-            noteEl.className = 'note';
-            noteEl.textContent = note;
-            container.appendChild(noteEl);
-            shownNotes.add(note);
-          }
-
-          const block = document.createElement('div');
-          block.className = 'command-block';
-
-          const descEl = document.createElement('div');
-          descEl.className = 'cmd-desc';
-          descEl.textContent = desc;
-
-          const cmdLine = document.createElement('div');
-          cmdLine.className = 'command-line';
-
-          const code = document.createElement('code');
-          const fullCommand = `*${command}`;
-          code.textContent = fullCommand;
-
-          const copyBtn = document.createElement('button');
-          copyBtn.className = 'copy-btn';
-          copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
-          copyBtn.onclick = () => {
-            navigator.clipboard.writeText(fullCommand);
-            copyBtn.classList.add('copied');
-            setTimeout(() => copyBtn.classList.remove('copied'), 1000);
-          };
-
-          cmdLine.appendChild(code);
-          cmdLine.appendChild(copyBtn);
-
-          block.appendChild(descEl);
-          block.appendChild(cmdLine);
-          container.appendChild(block);
+          
+          grouped[category].push({ command, desc });
         });
+        
+        categoryOrder.forEach(category => {
+          const note = categoryNotes[category];
+          const commands = grouped[category];
+          if (!commands || commands.length === 0) return;
+          
+          const noteEl = document.createElement("div");
+          noteEl.className = "note";
+          noteEl.textContent = note;
+          container.appendChild(noteEl);
+          
+          commands.forEach(({ command, desc }) => {
+            const block = document.createElement("div");
+            block.className = "command-block";
+            
+            const descEl = document.createElement("div");
+            descEl.className = "cmd-desc";
+            descEl.textContent = desc;
+            
+            const cmdLine = document.createElement("div");
+            cmdLine.className = "command-line";
+            
+            const code = document.createElement("code");
+            const fullCommand = `*${command}`;
+            code.textContent = fullCommand;
+            
+            const copyBtn = document.createElement("button");
+            copyBtn.className = "copy-btn";
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+            copyBtn.onclick = () => {
+              navigator.clipboard.writeText(fullCommand);
+              copyBtn.classList.add("copied");
+              setTimeout(() => copyBtn.classList.remove("copied"), 1000);
+            };
+            
+            cmdLine.appendChild(code);
+            cmdLine.appendChild(copyBtn);
+            
+            block.appendChild(descEl);
+            block.appendChild(cmdLine);
+            container.appendChild(block);
+          });
+        });
+      })
+      .catch(err => {
+        console.error("Error fetching commands:", err);
       });
   </script>
 </body>
+
 </html>

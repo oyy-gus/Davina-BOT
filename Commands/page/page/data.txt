@@ -1,5 +1,0 @@
-prefixset|Sets a custom prefix for the server.
-setbackground|Sets a background image for the welcome message.
-setwelcome|Sets a welcome message when a new member joins.
-unsetbackground|Removes the welcome background image.
-unsetwelcome|Removes the configured welcome message.

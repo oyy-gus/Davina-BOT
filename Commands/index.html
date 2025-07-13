@@ -250,41 +250,48 @@
   <footer>&copy; 2025 Davina BOT. Made with ❤️</footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("show");
+<script>
+  AOS.init();
+  
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+  
+  document.addEventListener("click", function(event) {
+    const menu = document.getElementById("menu");
+    const toggle = document.querySelector(".menu-toggle");
+    if (menu.classList.contains("show") &&
+      !menu.contains(event.target) &&
+      !toggle.contains(event.target)) {
+      menu.classList.remove("show");
     }
-
-    document.addEventListener("click", function (event) {
-      const menu = document.getElementById("menu");
-      const toggle = document.querySelector(".menu-toggle");
-      if (menu.classList.contains("show") &&
-          !menu.contains(event.target) &&
-          !toggle.contains(event.target)) {
-        menu.classList.remove("show");
-      }
-    });
-
-    fetch('data.txt')
-      .then(response => response.text())
-      .then(data => {
-        const container = document.getElementById('commands-container');
-        data.trim().split('\n').forEach(line => {
-          const [command, desc] = line.split('|');
-          if (command && desc) {
-            const cmdEl = document.createElement('div');
-            cmdEl.className = 'command-item command';
-            cmdEl.textContent = command.trim();
-            const descEl = document.createElement('div');
-            descEl.className = 'command-item';
-            descEl.textContent = desc.trim();
-            container.appendChild(cmdEl);
-            container.appendChild(descEl);
-          }
-        });
+  });
+  
+  fetch("https://davina-backend.koyeb.app/commands")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("commands-container");
+      
+      const musicCommands = data.filter(cmd =>
+        cmd.category.toLowerCase() === "music"
+      );
+      
+      musicCommands.forEach(({ name, description }) => {
+        const cmdEl = document.createElement("div");
+        cmdEl.className = "command-item command";
+        cmdEl.textContent = name;
+        
+        const descEl = document.createElement("div");
+        descEl.className = "command-item";
+        descEl.textContent = description;
+        
+        container.appendChild(cmdEl);
+        container.appendChild(descEl);
       });
-  </script>
+    })
+    .catch(error => {
+      console.error("Failed to load music commands:", error);
+    });
+</script>
 </body>
 </html>

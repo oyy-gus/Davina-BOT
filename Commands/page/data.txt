@@ -1,4 +1,0 @@
-avatar|Displays a user's avatar in full size.
-google|Performs a Google search and shows the top result.
-translate|Translates text into the specified language.
-wiki|Searches for a Wikipedia article and displays its summary.
