@@ -240,11 +240,11 @@
     const categoryNotes = {
       music: "🔊 You must be in a voice channel and not deafened.",
       administrator: "🛡️ Administrator permissions required.",
-      information: "⚠️ No special permissions required.",
+      utility: "⚠️ No special permissions required.",
       fun: "⚠️ Does not require special permissions."
     };
     
-    const categoryOrder = ["music", "administrator", "information", "fun"];
+    const categoryOrder = ["music", "administrator", "utility", "fun"];
     
     fetch("https://davina-backend.koyeb.app/commands")
       .then(res => res.json())

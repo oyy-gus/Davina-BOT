@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Davina BOT - Administrator Commands</title>
+  <title>Davina BOT - Utility Commands</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -237,7 +237,7 @@
 
   <main data-aos="fade-up">
     <section id="music-commands">
-      <h2>Information Commands</h2>
+      <h2>Utility Commands</h2>
       <div class="commands-grid" id="commands-container">
         <div class="command-item command header-row">Commands</div>
         <div class="command-item header-row">Description</div>
@@ -274,7 +274,7 @@ fetch("https://davina-backend.koyeb.app/commands")
     const container = document.getElementById("commands-container");
     
     const musicCommands = data.filter(cmd =>
-      cmd.category.toLowerCase() === "information"
+      cmd.category.toLowerCase() === "utility"
     );
     
     musicCommands.forEach(({ name, description }) => {
