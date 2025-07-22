@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Davina BOT - Funy Commands</title>
+  <title>Davina BOT - Utility Commands</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -191,35 +191,35 @@
       background-color: var(--table-hover);
     }
 
+    .nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.nav-button {
+  background-color: #379C70;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-button:hover {
+  background-color: #0099b0;
+}
+
     @media (max-width: 700px) {
       .commands-grid {
         grid-template-columns: 1fr 2fr;
       }
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-    }
-
-    .nav-button {
-      background-color: #379C70;
-      color: #fff;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .nav-button:hover {
-      background-color: #0099b0;
     }
   </style>
 </head>
@@ -230,23 +230,20 @@
       <i class="fas fa-bars"></i>
     </button>
     <nav id="menu">
-      <a href="../../">Home</a>
-      <a href="../../Documentation/">Documentation</a>
+      <a href="../../../../">Home</a>
+      <a href="../../../../documentation/">Documentation</a>
     </nav>
   </header>
 
   <main data-aos="fade-up">
     <section id="music-commands">
-      <h2>Funy Commands</h2>
+      <h2>Utility Commands</h2>
       <div class="commands-grid" id="commands-container">
         <div class="command-item command header-row">Commands</div>
         <div class="command-item header-row">Description</div>
       </div>
-
-      <!-- Tombol Navigasi -->
       <div class="nav-buttons">
         <a href="../" class="nav-button back-button">&larr; Back</a>
-        <a href="./page/" class="nav-button next-button">Next &rarr;</a>
       </div>
     </section>
   </main>
@@ -277,7 +274,7 @@ fetch("https://davina-backend.koyeb.app/commands")
     const container = document.getElementById("commands-container");
     
     const musicCommands = data.filter(cmd =>
-      cmd.category.toLowerCase() === "fun"
+      cmd.category.toLowerCase() === "utility"
     );
     
     musicCommands.forEach(({ name, description }) => {

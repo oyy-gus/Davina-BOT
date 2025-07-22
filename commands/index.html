@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Davina BOT - Utility Commands</title>
+  <title>Davina BOT - Music Commands</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -191,30 +191,29 @@
       background-color: var(--table-hover);
     }
 
-    .nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
+    .next-button-container {
+      text-align: right;
+      margin-top: 1rem;
+    }
 
-.nav-button {
-  background-color: #379C70;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-  -webkit-tap-highlight-color: transparent;
-}
+    .next-button {
+      background-color: #379C70;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-.nav-button:hover {
-  background-color: #0099b0;
-}
+    .next-button:hover {
+      background-color: #0099b0;
+    }
 
     @media (max-width: 700px) {
       .commands-grid {
@@ -230,20 +229,20 @@
       <i class="fas fa-bars"></i>
     </button>
     <nav id="menu">
-      <a href="../../../../">Home</a>
-      <a href="../../../../Documentation/">Documentation</a>
+      <a href="../">Home</a>
+      <a href="../documentation/">Documentation</a>
     </nav>
   </header>
 
   <main data-aos="fade-up">
     <section id="music-commands">
-      <h2>Utility Commands</h2>
+      <h2>Music Commands</h2>
       <div class="commands-grid" id="commands-container">
         <div class="command-item command header-row">Commands</div>
         <div class="command-item header-row">Description</div>
       </div>
-      <div class="nav-buttons">
-        <a href="../" class="nav-button back-button">&larr; Back</a>
+      <div class="next-button-container">
+        <a href="./page/" class="next-button">Next &rarr;</a>
       </div>
     </section>
   </main>
@@ -251,48 +250,48 @@
   <footer>&copy; 2025 Davina BOT. Made with ❤️</footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("show");
-}
-
-document.addEventListener("click", function(event) {
-  const menu = document.getElementById("menu");
-  const toggle = document.querySelector(".menu-toggle");
-  if (menu.classList.contains("show") &&
-    !menu.contains(event.target) &&
-    !toggle.contains(event.target)) {
-    menu.classList.remove("show");
+<script>
+  AOS.init();
+  
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
   }
-});
-
-fetch("https://davina-backend.koyeb.app/commands")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("commands-container");
-    
-    const musicCommands = data.filter(cmd =>
-      cmd.category.toLowerCase() === "utility"
-    );
-    
-    musicCommands.forEach(({ name, description }) => {
-      const cmdEl = document.createElement("div");
-      cmdEl.className = "command-item command";
-      cmdEl.textContent = name;
-      
-      const descEl = document.createElement("div");
-      descEl.className = "command-item";
-      descEl.textContent = description;
-      
-      container.appendChild(cmdEl);
-      container.appendChild(descEl);
-    });
-  })
-  .catch(error => {
-    console.error("Failed to load music commands:", error);
+  
+  document.addEventListener("click", function(event) {
+    const menu = document.getElementById("menu");
+    const toggle = document.querySelector(".menu-toggle");
+    if (menu.classList.contains("show") &&
+      !menu.contains(event.target) &&
+      !toggle.contains(event.target)) {
+      menu.classList.remove("show");
+    }
   });
-  </script>
+  
+  fetch("https://davina-backend.koyeb.app/commands")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("commands-container");
+      
+      const musicCommands = data.filter(cmd =>
+        cmd.category.toLowerCase() === "music"
+      );
+      
+      musicCommands.forEach(({ name, description }) => {
+        const cmdEl = document.createElement("div");
+        cmdEl.className = "command-item command";
+        cmdEl.textContent = name;
+        
+        const descEl = document.createElement("div");
+        descEl.className = "command-item";
+        descEl.textContent = description;
+        
+        container.appendChild(cmdEl);
+        container.appendChild(descEl);
+      });
+    })
+    .catch(error => {
+      console.error("Failed to load music commands:", error);
+    });
+</script>
 </body>
 </html>
